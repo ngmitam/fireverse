@@ -1,9 +1,12 @@
 import { Navigate, useLocation } from "react-router-dom";
-
 import { FC } from "react";
 import { useStore } from "../store";
 
-const PrivateRoute: FC = ({ children }) => {
+type PrivateRouteProps = {
+  children: React.ReactNode;
+};
+
+const PrivateRoute: FC<PrivateRouteProps> = ({ children }) => {
   const currentUser = useStore((state) => state.currentUser);
   const location = useLocation();
 
